@@ -9,7 +9,7 @@ export default function NavigationBar(props){
                     <td><button onClick={()=> {switchTab(1)} }>View Your Reimbursement</button></td>
                     <td><button onClick={()=> {switchTab(2)} }>Make a Reimbursement Request</button></td>
                     <td><button onClick={()=> {switchTab(3)} }>Manage Reimbursement</button></td>
-                    <td><button onClick={()=> {switchTab(4)} }>Admin Page</button></td>
+                    <td><button onClick={()=> {switchTab(4)} }>Stats</button></td>
                 </tr>
             </tbody>
         </table>

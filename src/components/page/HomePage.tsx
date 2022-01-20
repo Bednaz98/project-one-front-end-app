@@ -3,6 +3,7 @@ import NavigationBar from "../element/eNavigationBar";
 import UserProfile from "../panels/homepage/pUserProfile";
 import RequestView from "../panels/homepage/pRequestView";
 import RequestCreation from "../panels/homepage/pRequestCreation";
+import DisplayRecords from "../panels/homepage/pDisplayRecords";
 
 
 export default function HomePage(){
@@ -12,8 +13,8 @@ export default function HomePage(){
             case 0:     {return ( <UserProfile/>  )  }
             case 1:     {return ( <RequestView ManagerMode= {false}/> )  }
             case 2:     {return ( <RequestCreation/>  )  }
-            case 3:     {return (  <RequestView ManagerMode= {true}/>  )  }
-            case 4:     {return ( <h1>Tab 5</h1>  )  }
+            case 3:     {return ( <RequestView ManagerMode= {true}/>  )  }
+            case 4:     {return ( <DisplayRecords/> )  }
             default:    {return (  <UserProfile/> )   }
         }
     }

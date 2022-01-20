@@ -27,7 +27,7 @@ export default function RequestView(props){
 
         return () => {}}, []);
 
-        async function SetRequestStatus(type:RequestStatus){
+        async function SetRequestStatus(type:RequestStatus, Message:string){
             switch(type){
                 case RequestStatus.deleted:{   
                     const t = await FoundContext.HTTPHandler.DeleteRequest(FoundContext.readUserProfile.id,RequestID.id )
@@ -40,7 +40,7 @@ export default function RequestView(props){
                     ;break
                 }
                 case RequestStatus.Denied:{   
-                    const t = await FoundContext.HTTPHandler.ManagerChangeRequest(FoundContext.readUserProfile.id,RequestID.id,RequestStatus.Denied )
+                    const t = await FoundContext.HTTPHandler.ManagerChangeRequest(FoundContext.readUserProfile.id,RequestID.id,RequestStatus.Denied, Message )
                     if(t){
                         const temp = RequestID;
                         temp.RequestStatus = RequestStatus.Denied;
@@ -50,7 +50,7 @@ export default function RequestView(props){
                     ;break
                 }
                 case RequestStatus.Approved:{   
-                    const t = await FoundContext.HTTPHandler.ManagerChangeRequest(FoundContext.readUserProfile.id,RequestID.id,RequestStatus.Approved )
+                    const t = await FoundContext.HTTPHandler.ManagerChangeRequest(FoundContext.readUserProfile.id,RequestID.id,RequestStatus.Approved, Message )
                     if(t){
                         const temp = RequestID;
                         temp.RequestStatus = RequestStatus.Approved;
@@ -86,10 +86,15 @@ export default function RequestView(props){
         
     }
 
+    function RequestTitle(){
+        if(ManagerMode){return(<>Incoming Request</>)}
+        return(<>Your  Request</>)
+    }
+
     return( <>
         <h2>Your Request</h2>
         <table>
-            <thead> <td>Your Request</td> <td>||</td> <td>Selected Request</td> </thead>
+            <thead> <td>{RequestTitle()}</td> <td>||</td> <td>Selected Request</td> </thead>
             <tbody>
                 <td>{ButtonDisplay}</td>
                 <td>||</td>

@@ -16,7 +16,26 @@ export default function RequestDisplay(props){
         return () => {  } }, [])
     
     function GetInputMessage(){
-        if(RequestID.)
+        if(RequestID.InputMessage?.length > 0){
+            return(<>
+            <table>
+                <tbody>
+                <tr> <td><h6> Filed Message: </h6> </td> <td> <h6> {RequestID.InputMessage} </h6></td> </tr>
+                </tbody>
+            </table>
+            </>)
+        }
+    }
+    function GetManagerMessage(){
+        if(RequestID.ManagerMessage?.length > 0){
+            return(<>
+            <table>
+                <tbody>
+                <tr> <td><h6> Status Message: </h6> </td> <td> <h6> {RequestID.ManagerMessage} </h6></td> </tr>
+                </tbody>
+            </table>
+            </>)
+        }
     }
 
     function ButtonDisplay(){
@@ -45,7 +64,9 @@ export default function RequestDisplay(props){
                     </tbody>
             </table>
             {}
+            {GetInputMessage()}
             {ButtonDisplay()}
+            {GetManagerMessage()}
             </>)
     }
 

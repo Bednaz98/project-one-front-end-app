@@ -33,7 +33,7 @@ export default function RequestCreation(){
         <table>
             <tbody>
             <tr> <td><h4>Request Amount</h4></td>   <td>    <input defaultValue={ RequestAmount}    onChange={SetAmount} type="number" size={30}/></td> </tr>
-            <tr> <td><h4> Added File </h4> </td>    <td>    <input defaultValue={ RequestMessage}      onChange={SetMessage} type="text" size={30}/></td> </tr>
+            <tr> <td><h4> Added Message </h4> </td>    <td>    <input defaultValue={ RequestMessage}      onChange={SetMessage} type="text" size={30}/></td> </tr>
             </tbody>
         </table>
         <button onClick={ ()=>{SendRequest()} }>  Submit Request </button >
